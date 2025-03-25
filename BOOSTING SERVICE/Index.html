@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>League of Legends - Boosting Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', sans-serif;
+        }
+        body {
+            background-color: #121826;
+            color: #EDEDED;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        .header {
+            background: linear-gradient(to right, #253A5A, #121826);
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+            animation: fadeInDown 1s ease-in-out;
+        }
+        .banner {
+            width: 90%;
+            height: 400px;
+            object-fit: cover;
+            margin: 20px auto;
+            display: block;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(255, 215, 0, 0.4);
+            transition: transform 0.5s;
+        }
+        .banner:hover {
+            transform: scale(1.05);
+        }
+        .boosting-tier {
+            background: #1E2A44;
+            margin: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            width: 250px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+        .boosting-tier:hover {
+            background: #FFD700;
+            color: #121826;
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.5);
+        }
+        .boosting-tier::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: skewX(-30deg);
+            transition: left 0.5s;
+        }
+        .boosting-tier:hover::after {
+            left: 100%;
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .social-links {
+            margin-top: 30px;
+            font-size: 18px;
+        }
+        .social-links a {
+            color: #FFD700;
+            text-decoration: none;
+            margin: 10px;
+            display: block;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: #FFFFFF;
+        }
+        .boosting-images {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .boosting-images img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.5);
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+        .boosting-images img.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .footer {
+        margin-top: 40px;
+        color: #35393d;
+    }
+    </style>
+    <script>
+        function showImage(leftImage, rightImage) {
+            const left = document.getElementById('boosting-img-left');
+            const right = document.getElementById('boosting-img-right');
+            left.src = leftImage;
+            right.src = rightImage;
+            left.classList.add('show');
+            right.classList.add('show');
+        }
+    </script>
+</head>
+<body>
+    <div class="header">League of Legends - Boosting Service</div>
+    <img src="banner.png" alt="Banner Image" class="banner">
+
+    <div class="boosting-images">
+        <img id="boosting-img-left" src="" alt="Boosting Tier">
+        <img id="boosting-img-right" src="" alt="Price">
+    </div>
+    <div class="boosting-tier" onclick="toggleImage('iron.png', 'PRICE1.png')">Iron ➝ Bronze</div>
+<div class="boosting-tier" onclick="toggleImage('bronze.png', 'PRICE2.png')">Bronze ➝ Silver</div>
+<div class="boosting-tier" onclick="toggleImage('silver.png', 'PRICE3.png')">Silver ➝ Gold</div>
+<div class="boosting-tier" onclick="toggleImage('gold.png', 'PRICE5.png')">Gold ➝ Platinum</div>
+<div class="boosting-tier" onclick="toggleImage('platinum.png', 'PRICE10.png')">Platinum ➝ Emerald</div>
+<div class="boosting-tier" onclick="toggleImage('emerald.png', 'PRICE11.png')">Emerald ➝ Diamond</div>
+<div class="boosting-tier" onclick="toggleImage('diamond.png', 'PRICE9.png')">Diamond ➝ Master</div>
+
+
+
+
+<script>
+    function toggleImage(leftImage, rightImage) {
+        const left = document.getElementById('boosting-img-left');
+        const right = document.getElementById('boosting-img-right');
+        
+        if (left.src && left.src.includes(leftImage)) {
+            left.src = "";
+            right.src = "";
+            left.classList.remove('show');
+            right.classList.remove('show');
+        } else {
+            left.src = leftImage;
+            right.src = rightImage;
+            left.classList.add('show');
+            right.classList.add('show');
+        }
+    }
+</script>
+
+    <div class="contact-section" style="margin-bottom: 60px;">
+        <h2>Contact Me</h2>
+        <p>Discord: dcewaved</p>
+        <p>Facebook: <a href="https://www.facebook.com/dince.dino.52" target="_blank">Dince Dino</a></p>
+        <p>Email: <a href="mailto:udyrjoestar15@gmail.com">udyrjoestar15@gmail.com</a></p>
+    </div>
+    
+    <div class="security-section" style="margin-top: 60px;">
+        <h2>Account Safety & Anonymity</h2>
+        <p>✔ 100% secure - No scripts, bots, or third-party software</p>
+        <p>✔ VPN-protected for complete anonymity</p>
+        <p>✔ No chat interactions unless requested</p>
+        <p>✔ Duo queue available upon request</p>
+        <p>✔ Live coaching and in-game comms available</p>
+    </div>
+    <div class="footer" style="margin-top: 60px;"></div>&copy; 2025 League of Legends Boosting Service. All Rights Reserved.</div>
+    
